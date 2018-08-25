@@ -1,0 +1,4 @@
+C:\Users\JamesWalker\Documents\Visual Studio 2017\BatchFix\BatchFix\obj\Debug\BatchFix.csprojAssemblyReference.cache
+C:\Users\JamesWalker\Documents\Visual Studio 2017\BatchFix\BatchFix\obj\Debug\BatchFix.Properties.Resources.resources
+C:\Users\JamesWalker\Documents\Visual Studio 2017\BatchFix\BatchFix\obj\Debug\BatchFix.csproj.GenerateResource.cache
+C:\Users\JamesWalker\Documents\Visual Studio 2017\BatchFix\BatchFix\obj\Debug\BatchFix.csproj.CoreCompileInputs.cache
