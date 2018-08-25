@@ -1,2 +1,3 @@
 # BatchFix
 Utility to logically assess and fix Work Opportunity Tax Credit (WOTC) batch files before state submission. This program catches applications that lack a target group or lack required information. If possible, it will auto-fix the application. If not, the application is brought to the attention of the user for resolution.
+The BatchFix program includes a list of zip codes for Rural Renewal Counties and city names for Empowerment Zones so that these target groups can be automatically assigned. Other target groups based on private information are assigned only if there is sufficient information to do so accurately. Otherwise the program provides an interface for the user to easily review and correct information.
