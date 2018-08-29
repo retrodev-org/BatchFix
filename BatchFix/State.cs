@@ -15,11 +15,10 @@ namespace BatchFix
 		private string answerFalse;			// 0, N, or FALSE - sets format for state
 		private Array zipCodesRRC;			// list of zip codes that qualify for RRC
 		private Array citiesEmpowerment;    // list of cities that are empowerment zones
-	}
-	
-	InitializeState(int thisState){
+		
+		public void InitializeState(int thisState){
 		switch (thisState){
-			case: 	STATE_AK
+			case STATE_AK:
 				// TODO Verify these answers. This is just an example.
 				name = "AK";
 				delimiter = DELMT_COMMA;
@@ -30,111 +29,112 @@ namespace BatchFix
 				// TODO load citiesEmpowerment from RRC_AK.csv
 				// TODO load zipCodesRRC from RRC_AK.csv
 				break;
-			case: 	STATE_AL
+			case STATE_AL:
 				break;
-			case: 	STATE_AR
+			case STATE_AR:
 				break;
-			case: 	STATE_AZ
+			case STATE_AZ:
 				break;
-			case: 	STATE_CA
+			case STATE_CA:
 				break;
-			case: 	STATE_CO
+			case STATE_CO:
 				break;
-			case: 	STATE_CT
+			case STATE_CT:
 				break;
-			case: 	STATE_DC
+			case STATE_DC:
 				break;
-			case: 	STATE_DE
+			case STATE_DE:
 				break;
-			case: 	STATE_FL
+			case STATE_FL:
 				break;
-			case: 	STATE_GA
+			case STATE_GA:
 				break;
-			case: 	STATE_GUAM
+			case STATE_GUAM:
 				break;
-			case: 	STATE_HI
+			case STATE_HI:
 				break;
-			case: 	STATE_IA
+			case STATE_IA:
 				break;
-			case: 	STATE_ID
+			case STATE_ID:
 				break;
-			case: 	STATE_IL
+			case STATE_IL:
 				break;
-			case: 	STATE_IN
+			case STATE_IN:
 				break;
-			case: 	STATE_KS
+			case STATE_KS:
 				break;
-			case: 	STATE_KY
+			case STATE_KY:
 				break;
-			case: 	STATE_LA
+			case STATE_LA:
 				break;
-			case: 	STATE_MA
+			case STATE_MA:
 				break;
-			case: 	STATE_MD
+			case STATE_MD:
 				break;
-			case: 	STATE_ME
+			case STATE_ME:
 				break;
-			case: 	STATE_MI
+			case STATE_MI:
 				break;
-			case: 	STATE_MN
+			case STATE_MN:
 				break;
-			case: 	STATE_MO
+			case STATE_MO:
 				break;
-			case: 	STATE_MS
+			case STATE_MS:
 				break;
-			case: 	STATE_MT
+			case STATE_MT:
 				break;
-			case: 	STATE_NC
+			case STATE_NC:
 				break;
-			case: 	STATE_ND
+			case STATE_ND:
 				break;
-			case: 	STATE_NE
+			case STATE_NE:
 				break;
-			case: 	STATE_NH
+			case STATE_NH:
 				break;
-			case: 	STATE_NJ
+			case STATE_NJ:
 				break;
-			case: 	STATE_NM
+			case STATE_NM:
 				break;
-			case: 	STATE_NV
+			case STATE_NV:
 				break;
-			case: 	STATE_NY
+			case STATE_NY:
 				break;
-			case: 	STATE_OH
+			case STATE_OH:
 				break;
-			case: 	STATE_OK
+			case STATE_OK:
 				break;
-			case: 	STATE_OR
+			case STATE_OR:
 				break;
-			case: 	STATE_PA
+			case STATE_PA:
 				break;
-			case: 	STATE_PR
+			case STATE_PR:
 				break;
-			case: 	STATE_RI
+			case STATE_RI:
 				break;
-			case: 	STATE_SC
+			case STATE_SC:
 				break;
-			case: 	STATE_SD
+			case STATE_SD:
 				break;
-			case: 	STATE_TN
+			case STATE_TN:
 				break;
-			case: 	STATE_TX
+			case STATE_TX:
 				break;
-			case: 	STATE_UT
+			case STATE_UT:
 				break;
-			case: 	STATE_VA
+			case STATE_VA:
 				break;
-			case: 	STATE_VT
+			case STATE_VT:
 				break;
-			case: 	STATE_WA
+			case STATE_WA:
 				break;
-			case: 	STATE_WI
+			case STATE_WI:
 				break;
-			case: 	STATE_WV
+			case STATE_WV:
 				break;
-			case: 	STATE_WY
+			case STATE_WY:
 				break;
+			}
 		}
-		
 	}
-}
+	
+	}

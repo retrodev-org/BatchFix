@@ -1,22 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿/*
+ * Created by SharpDevelop.
+ * User: wholland
+ * Date: 8/15/2018
+ * Time: 3:05 PM
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
 using System.Windows.Forms;
+using Constants;
 
 namespace BatchFix
 {
-	static class Program
+	/// <summary>
+	/// Class with program entry point.
+	/// </summary>
+	internal sealed class Program
 	{
 		/// <summary>
-		/// The main entry point for the application.
+		/// Program entry point.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		private static void Main(string[] args)
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new BatchFixForm());
+			Application.Run(new MainForm());
 		}
+		
 	}
 }
