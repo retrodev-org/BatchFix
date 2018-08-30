@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Constants;
+using MyConstants;
 
 namespace BatchFix
 {
@@ -16,6 +16,16 @@ namespace BatchFix
 		//todo add common fixes that are required by several states but not by specific pieces of information
 		//todo maybe check employer phone = null or blank in final general check?
 
+		public string CheckLength(string input, int length)
+		{
+			while(input.length < length)
+			{
+				input = "0" + input;
+			}
+			
+			return input;
+		}
+		
 		String RemoveSpecialChars(String input, char[] chars)
 		{
 			//todo use array of chars as guide for characters to remove from given string
