@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GeneralTasks;
 using MyConstants;
 using State;
 using MyDate;
@@ -14,6 +12,7 @@ namespace BatchFix
 	{
 		private Employee employee;
 		private Employer employer;
+		private Consultant consultant;
 		private String requestID;
 		private MyDate startDate;
 		private MyDate hireDate;
@@ -25,6 +24,7 @@ namespace BatchFix
 		private MyDate convictionDate;
 		private MyDate releaseDate;
 		private int submissionState;
+		private int recordFormat;
 
 		private string wage = WAGE_DEFAULT;
 		private string position;
@@ -66,9 +66,11 @@ namespace BatchFix
 		public bool PrescreenQ5 { get => prescreenQ5; set => prescreenQ5 = value; }
 		public bool PrescreenQ6 { get => prescreenQ6; set => prescreenQ6 = value; }
 		public bool PrescreenQ7 { get => prescreenQ7; set => prescreenQ7 = value; }
-		public bool Ready { get => ready; set => ready = value; }
+		public bool IsReady { get => isReady; set => isReady = value; }
 		public bool Rehire { get => rehire; set => rehire = value; }
 		internal Employee Employee { get => employee; set => employee = value; }
+		internal Employer Employer { get => employer; set => employer = value; }
+		internal Consultant Consultant { get => consultant; set => consultant = value; }
 		internal MyDate StartDate { get => startDate; set => startDate = value; }
 		internal MyDate HireDate { get => hireDate; set => hireDate = value; }
 		internal MyDate InfoDate { get => infoDate; set => infoDate = value; }
@@ -78,15 +80,45 @@ namespace BatchFix
 		internal MyDate RehireWorkDate { get => rehireWorkDate; set => rehireWorkDate = value; }
 		internal MyDate ConvictionDate { get => convictionDate; set => convictionDate = value; }
 		internal MyDate ReleaseDate { get => releaseDate; set => releaseDate = value; }
+		public int SubmissionState { get => submissionState; set => submissionState = value; }
+		public int RecordFormat { get => recordFormat; set => recordFormat = value; }
 		
-		public bool Validatepplication(int submissionState)
+		public bool ValidateApplication(int submissionState)
 		{
-			ValidateEmployee(this.Employee);
-			ValidateEmployer(this.Employer);
-			InitializeState(submissionState);
+			IsReady = ValidateEmployee();
+			
+			if (IsReady == true)
+				IsReady = ValidateEmployer();
+			else
+				WriteError("Fail on Employee validation for request ID " + RequestID);
+			if (IsReady == true)
+				IsReady = ValidateConsultant();
+			else
+				WriteError("Fail on Employer validation for request ID " + RequestID);
+			if (IsReady == true)
+				IsReady = ValidateState();
+			else
+				WriteError("Fail on State validation for request ID " + RequestID);
+			if (IsReady == true)
+				IsReady = ValidateDates();
+			else
+				WriteError("Fail on Dates validation for request ID " + RequestID);
+			if (IsReady == true)
+				IsReady = ValidateRehire();
+			else
+				WriteError("Fail on Rehire validation for request ID " + RequestID);
+			if (IsReady == true)
+				IsReady = ValidateTargetGroups();
+			else
+				WriteError("Fail on Target Group validation for request ID " + RequestID);
+			
 			return isReady;
 		}
 		
-		
+		public bool ValidateEmployee()
+		{
+			employee.Social = CheckLength(employee.Social);
+			
+		}
 	}
 }

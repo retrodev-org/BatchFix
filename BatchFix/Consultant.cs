@@ -23,37 +23,38 @@ namespace BatchFix
 		Consultant(string consultantName)
 		{
 
-			if (Name == "EF")
+			if (consultantName == "EF")
 			{
 				// Assign values based on constant strings for each company
-				name = EF_NAME;
-				address = EF_ADDRESS;
-				city = EF_CITY;
-				state = EF_STATE;
-				zipCode = EF_ZIP;
-				phone = EF_PHONE;
-				fax = EF_FAX;
-				email = EF_EMAIL;
-				signerName = EF_SIGNER;
-				signerTitle = EF_SIGNER_TITLE;
+				Name = EF_NAME;
+				Address = EF_ADDRESS;
+				City = EF_CITY;
+				State = EF_STATE;
+				ZipCode = EF_ZIP;
+				Phone = EF_PHONE;
+				Fax = EF_FAX;
+				Email = EF_EMAIL;
+				SignerName = EF_SIGNER;
+				SignerTitle = EF_SIGNER_TITLE;
 				
-			} else if (Name == "NTC")
+			} else if (consultantName == "NTC")
 			{
 				// Assign values based on constant strings for each company
-				name = NTC_NAME;
-				address = NTC_ADDRESS;
-				city = NTC_CITY;
-				state = NTC_STATE;
-				zipCode = NTC_ZIP;
-				phone = NTC_PHONE;
-				fax = NTC_FAX;
-				email = NTC_EMAIL;
-				signerName = NTC_SIGNER;
-				signerTitle = NTC_SIGNER_TITLE;
+				Name = NTC_NAME;
+				Address = NTC_ADDRESS;
+				City = NTC_CITY;
+				State = NTC_STATE;
+				ZipCode = NTC_ZIP;
+				Phone = NTC_PHONE;
+				Fax = NTC_FAX;
+				Email = NTC_EMAIL;
+				SignerName = NTC_SIGNER;
+				SignerTitle = NTC_SIGNER_TITLE;
 			}
 			else
 			{
 				// todo error message for invalid consultant
+				Console.WriteLine("Invalid consultant company name. Must be EF or NTC.");
 			}
 		}
 
@@ -63,6 +64,7 @@ namespace BatchFix
 		public string State { get => state; set => state = value; }
 		public string ZipCode { get => zipCode; set => zipCode = value; }
 		public string Phone { get => phone; set => phone = value; }
+		public string Fax { get => fax; set => fax = value; }
 		public string Email { get => email; set => email = value; }
 		public string SignerName { get => signerName; set => signerName = value; }
 		public string SignerTitle { get => signerTitle; set => signerTitle = value; }

@@ -38,12 +38,6 @@ namespace BatchFix
 			return input;
 		}
 
-		bool FinalAppCheck(Application application, String state)
-		{
-			//todo run checks based on which state file is for
-			return Application.isReady;
-		}
-
 		void WriteError(string message)
 		{
 			//todo Write error messages to a log file instead of console
