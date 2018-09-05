@@ -18,7 +18,7 @@ namespace BatchFix
 		private string zipCode;
 		private string phone;
 		
-		// TODO: create getters and setters
+		// TODO: create getters and setters (encapsulate, use field?)
 		
 		public Employer()
 		{
@@ -27,67 +27,98 @@ namespace BatchFix
 		
 		
 		// Validators
-		private CheckAddress()
+		private bool CheckAddress()
 		{
 			// Invalid characters
 			Regex nonAlphaNumeric = new Regex(@"^[a-zA-Z0-9_]+$");
+			// TODO re-examine RegEx as means of validating CheckAddress() characters
+			
+			// Default state is true, updated if either address 1 or 2 fails validation
+			bool isReady = true;
 			
 			// Street1
-			if(regex1.IsMatch(this.Street1))
+			if(regex1.IsMatch(Street1))
 			{
-				string[] thisStreet1 = Regex.Split(this..Street1);
-				this.Street1 = null;
+				string[] myStreet1 = Regex.Split(Street1);
 				
-				for(int i = 0; i < thisStreet1.Length; i++){
-					this.Street1 += thisStreet1[i];
+				Street1 = null;
+				
+				for(int i = 0; i < myStreet1.Length; i++){
+					Street1 += myStreet1[i];
 				}
 				
-				if (Street1.Length < 3)
+				// Fail street 1 validation if less than 3 characters or consists only of numbers
+				if (Street1.Length < 3 || !Street1.Contains("[a-zA-Z]"))
 				{
-					// TODO throw exception for invalid street address
+					Console.WriteLine("Fail on Employer Street Address 1 validation.");
+					isReady = false;
 				}
 			}
 			
 			// Street2
-			if(regex1.IsMatch(this.Street2))
+			if(regex1.IsMatch(Street2))
 			{
-				string[] thisStreet2 = Regex.Split(this.Street2);
-				this.Street2 = null;
+				string[] myStreet2 = Regex.Split(Street2);
+				Street2 = null;
 				
-				for(int i = 0; i < thisStreet2.Length; i++){
-					this.Street2 += thisStreet1[i];
+				for(int i = 0; i < myStreet2.Length; i++){
+					Street2 += myStreet2[i];
+				}
+				
+				// Fail street 2 validation if less than 3 characters or consists only of numbers
+				if (Street2.Length < 3 || !Street2.Contains("[a-zA-Z]"))
+				{
+					Console.WriteLine("Fail on Employer Street Address 2 validation.");
+					isReady = false;
 				}
 			}
 			
 			// City
-			if(regex1.IsMatch(this.City))
+			if(regex1.IsMatch(City))
 			{
-				string[] thisCity = Regex.Split(this.City);
-				this.City = null;
+				string[] myCity = Regex.Split(City);
+				City = null;
 				
-				for(int i = 0; i < thisCity.Length; i++){
-					this.City += thisCity[i];
+				for(int i = 0; i < myCity.Length; i++){
+					City += myCity[i];
 				}
+				
+				// Fail city validation if consists only of numbers
+				if (!City.Contains("[a-zA-Z]"))
+				{
+					Console.WriteLine("Fail on Employer City validation.");
+					isReady = false;
+				}
+				
+				return isReady;
 			}
 		}
 		
-		private CheckPhone(){
+		// Will substitute default phone number is given phone is invalid
+		private void CheckPhone()
+		{	
+			// If phone is not present or invalid (less than 10 chars), substitute consultant phone number 
 			if (this.Phone = null || this.Phone.Length < 10)
 			{
 				// Auto populate default phone num for NTC, EF
 				if (Consultant.Name = "NTC"){
 					this.Phone = NTC_PHONE;
 				} else {
-					this.Phone = EF_PHONE; 
+					this.Phone = EF_PHONE;
+				}
 			}
 		}
 		
-		private CheckFEIN(){
-			this.FEIN = CheckLength(this.FEIN,9);
+		// Will pad beginning of FEIN with zeros until it reaches 9 digits
+		private void CheckFEIN()
+		{
+			FEIN = CheckLength(FEIN,9);
 		}
 		
-		private CheckZip(){
-			this.Zip = CheckLength(this.Zip,5);
+		// Will pad beginning of Zip with zeros until it reaches 5 digits
+		private void CheckZip()
+		{
+			Zip = CheckLength(Zip,5);
 		}
 	}
 }
